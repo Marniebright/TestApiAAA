@@ -9,7 +9,8 @@ The test coverage will include:
     * Put
     * Delete
 1. Response type
-1. Response codes (OK, Not Found)
+1. Response codes (OK, Not Found, Bad Request)
+1. Response id if equal to supplied
 
 ## Testing Methodology
 * Automated scripts using: C# and .Net Framework and the RestSharp library 

@@ -1,6 +1,8 @@
+using System.Collections.Generic;
 using System.Net;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using RestSharp;
+using RestSharp.Serialization.Json;
 
 namespace TestEmployeeApi
 {
@@ -25,9 +27,13 @@ namespace TestEmployeeApi
             request.RequestFormat = DataFormat.Json;
             request.AddJsonBody(employee);
             IRestResponse response = client.Execute(request);
-
+            
+            JsonDeserializer jsonDeserializer = new JsonDeserializer();
+            var output = jsonDeserializer.Deserialize<Dictionary<string,string>>(response);
+           
             Assert.AreEqual("application/json; charset=utf-8", response.ContentType);
             Assert.AreEqual(HttpStatusCode.Created, response.StatusCode);
+            Assert.AreEqual(output["id"], "18");
         }
     }
 }

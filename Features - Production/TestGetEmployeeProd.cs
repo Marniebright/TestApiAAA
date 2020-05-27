@@ -28,8 +28,9 @@ namespace TestEmployeeApi
             RestClient client = new RestClient(endpoint);
             RestRequest request = new RestRequest("employee", Method.GET);
             IRestResponse response = client.Execute(request);
-             
+
             Assert.AreEqual(HttpStatusCode.NotFound, response.StatusCode);
+            
         }
 
         // [TestMethod]
