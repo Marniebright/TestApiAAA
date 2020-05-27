@@ -14,3 +14,11 @@ Make sure you have the following installed:
 1. Go to project directory and run `json-server --watch db.json` 
 1. Launch CMD / Powershell
 1. Use `dotnet test` to run test scripts.
+
+## Known Issues
+1. No config yet for live and test environments.
+2. Bad request on routes (commented)
+3. Not 100% Test Coverage
+
+## Author
+Marniebright
