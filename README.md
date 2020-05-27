@@ -9,4 +9,8 @@ Make sure you have the following installed:
 * Json-Server (localhost)
 * .Net Framework
 
-Use `dotnet test` to run test scripts.
+## Steps
+1. Launch Node.JS 
+1. Go to project directory and run `json-server --watch db.json` 
+1. Launch CMD / Powershell
+1. Use `dotnet test` to run test scripts.

@@ -8,7 +8,6 @@ namespace TestEmployeeApi
     public class TestCreateEmployee
     {
         private string localhost = "http://localhost:3000";
-        private string endPoint = "http://dummy.restapiexample.com/api/v1";
         private Employee employee = new Employee {
             id = "18",
             employee_name = "aba",
@@ -21,7 +20,6 @@ namespace TestEmployeeApi
         public void TestEmployeeCreation()
         {
             RestClient client = new RestClient(localhost);
-            //RestClient client = new RestClient(endPoint);
             RestRequest request = new RestRequest("employees", Method.POST);
             request.RequestFormat = DataFormat.Json;
             request.AddJsonBody(employee);

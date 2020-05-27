@@ -1,15 +1,15 @@
 # AAA API Test Plan
 
 ## Scope
-The test coverage will inclue:
-* Employee API Actions
+The test coverage will include:
+1. Employee API Actions
     * Get 
     * Get By Id
     * Post
     * Put
     * Delete
-* Response type
-* Response codes (OK, Not Found)
+1. Response type
+1. Response codes (OK, Not Found)
 
 ## Testing Methodology
 * Automated scripts using: C# and .Net Framework and the RestSharp library 
@@ -17,16 +17,16 @@ The test coverage will inclue:
 
 ## Entrance and Exit Criteria
 * Entrance
-    * Test environment is available and ready.
-    * Test cases are complete and reviewed.
+    1. Test environment is available and ready.
+    1. Test cases are complete and reviewed.
 * Exit
-    * All test cases are executed.
-    * The automated test suite should use Object-Oriented Principles.
-    * The automated should read the endpoint URL and input value from config files to run the same test suite for different environment.
+    1. All test cases are executed.
+    1. The automated test suite should use Object-Oriented Principles.
+    1. The automated should read the endpoint URL and input value from config files to run the same test suite for different environment.
 
 ## Risk and Dependencies
-* Changes to original requirements or design.
-* Lack of (or late) delivery from the development organization:
+1. Changes to original requirements or design.
+1. Lack of (or late) delivery from the development organization:
     * Requirements
     * Design
     * Code

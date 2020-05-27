@@ -8,13 +8,11 @@ namespace TestEmployeeApi
     public class TestGetEmployee
     {
         private string localhost = "http://localhost:3000";
-        private string endPoint = "http://dummy.restapiexample.com/api/v1";
-  
+    
         [TestMethod]
         public void TestGetAllEmployees()
         {
-            //RestClient client = new RestClient(localhost);
-            RestClient client = new RestClient(endPoint);
+            RestClient client = new RestClient(localhost);
             RestRequest request = new RestRequest("employees", Method.GET);
             IRestResponse response = client.Execute(request);
              
@@ -25,8 +23,7 @@ namespace TestEmployeeApi
         [TestMethod]
         public void TestNotFoundEmployees()
         {
-            //RestClient client = new RestClient(localhost);
-            RestClient client = new RestClient(endPoint);
+            RestClient client = new RestClient(localhost);
             RestRequest request = new RestRequest("employee", Method.GET);
             IRestResponse response = client.Execute(request);
              
