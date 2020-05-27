@@ -7,7 +7,7 @@ namespace TestEmployeeApi
     [TestClass]
     public class TestUpdateEmployee
     {
-        private string localhost = "http://localhost:3000";
+        private string endpoint = "http://localhost:3000";
        
         private Employee employee = new Employee {
             employee_name = "aba",
@@ -19,7 +19,7 @@ namespace TestEmployeeApi
         [TestMethod]
         public void TestEmployeeUpdate()
         {
-            RestClient client = new RestClient(localhost);
+            RestClient client = new RestClient(endpoint);
             RestRequest request = new RestRequest("employees/{id}", Method.PUT);
             request.AddParameter("id", "2", ParameterType.UrlSegment);
             request.RequestFormat = DataFormat.Json;
@@ -33,7 +33,7 @@ namespace TestEmployeeApi
         [TestMethod]
         public void TestInvalidUpdateEmployee()
         {
-            RestClient client = new RestClient(localhost);
+            RestClient client = new RestClient(endpoint);
             RestRequest request = new RestRequest("employees/{id}", Method.PUT);
             request.AddParameter("id", "1010101", ParameterType.UrlSegment);
             request.RequestFormat = DataFormat.Json;

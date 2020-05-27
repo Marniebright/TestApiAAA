@@ -7,13 +7,15 @@ namespace TestEmployeeApi
     [TestClass]
     public class TestGetEmployee
     {
-        private string localhost = "http://localhost:3000";
+        private static string endpoint = "http://localhost:3000";
+        private static string routeForAllEmployee = "employees";
+        private static string routeForSingleEmployee = "employees/{id}";
     
         [TestMethod]
         public void TestGetAllEmployees()
         {
-            RestClient client = new RestClient(localhost);
-            RestRequest request = new RestRequest("employees", Method.GET);
+            RestClient client = new RestClient(endpoint);
+            RestRequest request = new RestRequest(routeForAllEmployee, Method.GET);
             IRestResponse response = client.Execute(request);
              
             Assert.AreEqual("application/json; charset=utf-8", response.ContentType);
@@ -23,7 +25,7 @@ namespace TestEmployeeApi
         [TestMethod]
         public void TestNotFoundEmployees()
         {
-            RestClient client = new RestClient(localhost);
+            RestClient client = new RestClient(endpoint);
             RestRequest request = new RestRequest("employee", Method.GET);
             IRestResponse response = client.Execute(request);
              
@@ -33,14 +35,24 @@ namespace TestEmployeeApi
         [TestMethod]
         public void TestGetEmployeeById()
         {
-            RestClient client = new RestClient(localhost);
-            //RestClient client = new RestClient(endPoint);
-            RestRequest request = new RestRequest("employees/{id}", Method.GET);
+            RestClient client = new RestClient(endpoint);
+            RestRequest request = new RestRequest(routeForSingleEmployee, Method.GET);
             request.AddParameter("id", "1", ParameterType.UrlSegment);
             IRestResponse response = client.Execute(request);
 
             Assert.AreEqual("application/json; charset=utf-8", response.ContentType);
             Assert.AreEqual(HttpStatusCode.OK, response.StatusCode);
+        }
+
+        [TestMethod]
+        public void TestGetEmployeeByInvalidId()
+        {
+            RestClient client = new RestClient(endpoint);
+            RestRequest request = new RestRequest(routeForSingleEmployee, Method.GET);
+            request.AddParameter("id", "11010101", ParameterType.UrlSegment);
+            IRestResponse response = client.Execute(request);
+
+            Assert.AreEqual(HttpStatusCode.NotFound, response.StatusCode);
         }
     }
 }

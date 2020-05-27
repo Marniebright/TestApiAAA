@@ -7,7 +7,8 @@ namespace TestEmployeeApi
     [TestClass]
     public class TestCreateEmployee
     {
-        private string localhost = "http://localhost:3000";
+        private static string endpoint = "http://localhost:3000";
+        private static string route = "employees";
         private Employee employee = new Employee {
             id = "18",
             employee_name = "aba",
@@ -19,8 +20,8 @@ namespace TestEmployeeApi
         [TestMethod]
         public void TestEmployeeCreation()
         {
-            RestClient client = new RestClient(localhost);
-            RestRequest request = new RestRequest("employees", Method.POST);
+            RestClient client = new RestClient(endpoint);
+            RestRequest request = new RestRequest(route, Method.POST);
             request.RequestFormat = DataFormat.Json;
             request.AddJsonBody(employee);
             IRestResponse response = client.Execute(request);

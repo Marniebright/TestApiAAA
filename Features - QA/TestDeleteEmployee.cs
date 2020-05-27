@@ -7,13 +7,14 @@ namespace TestEmployeeApi
     [TestClass]
     public class TestDeleteEmployee
     {
-        private string localhost = "http://localhost:3000";
+        private static string endpoint = "http://localhost:3000";
+        private static string route = "employees/{id}";
         
         [TestMethod]
         public void TestEmployeeDeletion()
         {
-            RestClient client = new RestClient(localhost);
-            RestRequest request = new RestRequest("employees/{id}", Method.DELETE);
+            RestClient client = new RestClient(endpoint);
+            RestRequest request = new RestRequest(route, Method.DELETE);
             request.AddParameter("id", "18", ParameterType.UrlSegment);
             IRestResponse response = client.Execute(request);
             
@@ -24,8 +25,8 @@ namespace TestEmployeeApi
         [TestMethod]
         public void TestInvalidEmployeeDeletion()
         {
-            RestClient client = new RestClient(localhost);
-            RestRequest request = new RestRequest("employees/{id}", Method.DELETE);
+            RestClient client = new RestClient(endpoint);
+            RestRequest request = new RestRequest(route, Method.DELETE);
             request.AddParameter("id", "1800", ParameterType.UrlSegment);
             IRestResponse response = client.Execute(request);
             
