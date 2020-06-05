@@ -37,6 +37,3 @@ The test coverage will include:
 
 ## Responsibilities
 NA
-
-## Sign-off
-Michael Favila (MOX Lead Quality Engineer)
